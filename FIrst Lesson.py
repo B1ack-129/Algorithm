@@ -138,7 +138,7 @@ def Test_Zero():
     except Exception:
         print('Error in function "clean" with zero list')
         return
-    if o_list.find_all(1) is not None:
+    if len(o_list.find_all(1)) is not 0:
         print('Error in function "find_all" with zero list')
         return
     #Test 'delete(all = False)'
