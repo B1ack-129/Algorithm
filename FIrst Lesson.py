@@ -10,6 +10,8 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    
+
     def add_in_tail(self, item):
         if self.head is None:
             self.head = item
@@ -91,7 +93,14 @@ class LinkedList:
             node = self.head
             while node is not None:
                 if node.value == afterNode.value:
-                    newNode.next = node.next
+                    if newNode.next is not None:
+                        pNode = newNode
+                        while pNode.next is not None:
+                            pNode = pNode.next
+                        endNode = pNode
+                    else:
+                        endNode = newNode
+                    endNode.next = node.next
                     node.next = newNode
                     return
                 node = node.next
@@ -255,6 +264,7 @@ def Test():
     if len(o_list.find_all(10)) is not 2:
         print('Error in function "find_all" with list of symbols')
         return
+
     #Test 'delete(all = False)'
     try:
         o_list.delete(10)
