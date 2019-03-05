@@ -100,6 +100,9 @@ class LinkedList:
                         endNode = pNode
                     else:
                         endNode = newNode
+                    
+                    if node is self.tail:
+                        self.tail = newNode 
                     endNode.next = node.next
                     node.next = newNode
                     return
